@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			const span = document.createElement('span');
 			span.className = 'cart-count-badge';
 			span.setAttribute('aria-live', 'polite');
-			
 			if (cartIcon) cartIcon.appendChild(span);
 			else (cartText?.parentNode||cartSection).insertBefore(span, cartText ? cartText.nextSibling : null);
 		}
