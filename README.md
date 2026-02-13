@@ -1,41 +1,34 @@
-# Recast Designs — Frontend Demo
+# Recast Designs — E-commerce Frontend Challenge
 
-Short description:
-This is a small frontend demo showcasing a dynamic product gallery (rings) and a local client-side shopping cart using `localStorage`.
+A high-fidelity, responsive e-commerce product section built with **Vanilla JavaScript (OOP)**, featuring dynamic product rendering and a persistent shopping cart system.
 
-Features
+## 🚀 Key Features
 
-- Dynamic product rendering from a JavaScript data array (`assets/js/script.js`).
-- `CartManager` (class-based) handles cart state, badge updates, preview, and item removal.
-- `ProductRenderer` renders product cards into the `.products-grid` container.
-- Cart state is persisted in `localStorage` under the key `recast_cart_v1`.
-- Responsive CSS rules are included to improve layout on smaller screens.
+* **Dynamic UI Rendering**: Products are not hard-coded; they are fetched and rendered dynamically from a data constant to ensure scalability.
+* **Class-Based Architecture**: Implemented a robust `CartManager` and `ProductRenderer` using ES6 Classes to ensure modularity and clean code separation.
+* **Cart Persistence**: Full "Add to Cart" logic with real-time UI updates (cart count/list) using `localStorage` for data persistence.
+* **Pixel-Perfect & Responsive**: A fully responsive layout built with CSS Grid/Flexbox, ensuring a seamless luxury experience across all breakpoints.
 
-Running the project
+## 🛠 Technical Implementation & Challenges
 
-1. Open `index.html` in your browser (no server required).
-2. Click an "Add To Cart" button and click the cart area to open the preview.
+### **Design Scaling & Viewport Mapping**
+During development, I observed that the Figma source frames utilized a non-standard canvas width (e.g., **3704px** for Desktop). To maintain the **Pixel-Perfect** requirement on standard displays:
+- I implemented a **Responsive Scaling** approach.
+- All proportions, ratios, and geometric rotations (e.g., the specific angles for rings) were mapped from the large-scale design to a standard **1440px** viewport.
+- This ensured that the visual integrity and luxury aesthetic and spatial relationships were preserved without sacrificing usability on actual hardware.
 
-Developer API (use in browser console)
+### **Advanced Geometry**
+To match the artistic direction of the "Ring Collection":
+- Used precise CSS `transform` values (rotations and scales) derived from Figma.
+- Leveraged `transform-origin` and `object-fit` to ensure consistent alignment of products regardless of their rotation angle.
 
-- `RECAST_CART.get()` — returns current cart state.
-- `RECAST_CART.add({name, price, img})` — programmatically add an item.
-- `RECAST_CART.removeAt(index)` — remove an item by index from the cart.
-- `RECAST_CART.clear()` — clear the cart.
+## 📂 Project Structure
+* `index.html`: Semantic HTML5 structure.
+* `assets/js/script.js`: Contains the `CartManager` and `ProductRenderer` classes.
+* `assets/css/style.css`: Custom CSS3 including the luxury dark theme and responsive queries.
+* `assets/fonts/`: Avenir Light integration for consistent branding.
 
-Developer notes
-
-- The JavaScript is organized into two classes inside `assets/js/script.js`: `ProductRenderer` and `CartManager`, matching a class-based architecture requirement.
-- If you prefer separating data and logic, move the `products` array to a separate `assets/js/products.js` file and import it.
-
-Files changed
-
-- `assets/js/script.js` — product rendering and class-based cart manager.
-- `assets/css/style.css` — cart badge/preview styles and responsive tweaks.
-
-Next steps (optional)
-
-- Add confirmation before removing items, quantity controls, or a full cart page.
-- Load product data from an external JSON file or API endpoint.
-
-If you want any of these enhancements, tell me which one and I'll implement it.
+## 🖥 Developer API (Console Access)
+You can interact with the global `RECAST_CART` instance directly:
+- `RECAST_CART.get()` — View current state.
+- `RECAST_CART.clear()` — Reset cart.
