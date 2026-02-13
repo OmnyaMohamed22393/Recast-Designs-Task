@@ -488,6 +488,17 @@ span {
         gap: 8px;
     }
 
+    .color-option {
+        width: 60px;
+        height: 84px;
+    }
+
+    .size-option {
+        min-width: 40px;
+        min-height: 40px;
+        padding: 10px;
+    }
+
     .gallery-container {
         display: none;
     }
